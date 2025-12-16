@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: miniproject
+  datasource:
+    url: jdbc:mysql://localhost:3306/project_tasks?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+server:
+  port: 8081
+
+app:
+  security:
+    jwt:
+      secret: change-this-secret-key-please-32chars-minimum
+      expiration-minutes: 60
