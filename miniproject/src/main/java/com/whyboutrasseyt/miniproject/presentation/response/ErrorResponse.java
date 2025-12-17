@@ -1,0 +1,20 @@
+package com.whyboutrasseyt.miniproject.presentation.response;
+
+import java.time.Instant;
+import java.util.List;
+
+public record ErrorResponse(
+        int status,
+        String error,
+        String message,
+        List<String> details,
+        Instant timestamp
+) {
+    public ErrorResponse(int status, String error, String message) {
+        this(status, error, message, null, Instant.now());
+    }
+
+    public ErrorResponse(int status, String error, String message, List<String> details) {
+        this(status, error, message, details, Instant.now());
+    }
+}

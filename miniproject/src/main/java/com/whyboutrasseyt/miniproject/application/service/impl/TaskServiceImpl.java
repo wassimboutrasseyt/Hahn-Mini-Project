@@ -71,6 +71,21 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
+    public TaskDto toggleCompleted(Long ownerId, Long taskId) {
+        Task task = findTask(taskId);
+        requireProject(ownerId, task.projectId());
+        Task updated = taskRepository.save(new Task(
+                task.id(),
+                task.projectId(),
+                task.title(),
+                task.description(),
+                task.dueDate(),
+                !task.completed()
+        ));
+        return toDto(updated);
+    }
+
+    @Override
     public void deleteTask(Long ownerId, Long taskId) {
         Task task = findTask(taskId);
         requireProject(ownerId, task.projectId());

@@ -12,5 +12,7 @@ public interface TaskService {
 
     TaskDto markCompleted(Long ownerId, Long taskId);
 
+    TaskDto toggleCompleted(Long ownerId, Long taskId);
+
     void deleteTask(Long ownerId, Long taskId);
 }
